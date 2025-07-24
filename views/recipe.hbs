@@ -1,0 +1,93 @@
+<div class="recipe-container">
+    {{#if recipe}}
+        <div class="recipe-header">
+            <h1>{{recipe.title}}</h1>
+            <div class="recipe-actions">
+                <button class="btn btn-primary" onclick="showEditForm()">Edit Recipe</button>
+                <a href="/recipes" class="btn btn-secondary">Back to All Recipes</a>
+            </div>
+        </div>
+        
+        <!-- Recipe Details -->
+        <div id="recipe-details" class="recipe-content">
+            <div class="recipe-section">
+                <h2>Ingredients</h2>
+                <div class="ingredients">
+                    {{#each (split recipe.ingredients (newline))}}
+                        {{#if this}}
+                        <div class="ingredient">{{this}}</div>
+                        {{/if}}
+                    {{else}}
+                        <!-- Fallback if split doesn't work -->
+                        <div class="ingredient">{{recipe.ingredients}}</div>
+                    {{/each}}
+                </div>
+            </div>
+            
+            <div class="recipe-section">
+                <h2>Method</h2>
+                <div class="method">
+                    {{#each (split recipe.method (newline))}}
+                        {{#if this}}
+                        <div class="instruction-step">
+                            <span class="step-number">{{add @index 1}}.</span>
+                            <span class="step-text">{{this}}</span>
+                        </div>
+                        {{/if}}
+                    {{else}}
+                        <!-- Fallback if split doesn't work -->
+                        <div class="instruction-step">
+                            <span class="step-number">1.</span>
+                            <span class="step-text">{{recipe.method}}</span>
+                        </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+        
+        <!-- Edit Recipe Form (initially hidden) -->
+        <div id="edit-recipe-form" class="recipe-form" style="display: none;">
+            <h2>Edit Recipe</h2>
+            <form action="/recipes/{{recipe.id}}/edit" method="POST">
+                <div class="form-group">
+                    <label for="edit-title">Recipe Title:</label>
+                    <input type="text" id="edit-title" name="title" value="{{recipe.title}}" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="edit-ingredients">Ingredients:</label>
+                    <textarea id="edit-ingredients" name="ingredients" rows="4" required>{{recipe.ingredients}}</textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="edit-method">Method:</label>
+                    <textarea id="edit-method" name="method" rows="6" required>{{recipe.method}}</textarea>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Update Recipe</button>
+                    <button type="button" class="btn btn-secondary" onclick="hideEditForm()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    {{else}}
+        <div class="recipe-not-found">
+            <h1>Recipe Not Found</h1>
+            <p>The recipe you're looking for doesn't exist.</p>
+            <a href="/recipes" class="btn btn-primary">Back to All Recipes</a>
+        </div>
+    {{/if}}
+</div>
+
+<script>
+function showEditForm() {
+    document.getElementById('recipe-details').style.display = 'none';
+    document.getElementById('edit-recipe-form').style.display = 'block';
+    document.getElementById('edit-title').focus();
+}
+
+function hideEditForm() {
+    document.getElementById('recipe-details').style.display = 'block';
+    document.getElementById('edit-recipe-form').style.display = 'none';
+}
+</script>

@@ -1,0 +1,37 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/devcontainers/images/tree/main/src/javascript-node
+{
+	"name": "JavaScript recipe app with GitHub Codespaces",
+	"image": "mcr.microsoft.com/devcontainers/javascript-node:1-20-bullseye",
+	"hostRequirements": {
+		"cpus": 4
+	},
+	"waitFor": "onCreateCommand",
+	"updateContentCommand": "npm install",
+	"postCreateCommand": "",
+	"postAttachCommand": {
+		"server": "npm start"
+	},
+
+	// Configure tool-specific properties.
+	"customizations": {
+		// Configure properties specific to VS Code.
+		"vscode": {
+			// Add the IDs of extensions you want installed when the container is created.
+			"extensions": ["GitHub.copilot"]
+		}
+	},
+
+	"features": {
+		"ghcr.io/devcontainers/features/github-cli:1": {}
+	},
+
+	"portsAttributes": {
+		"3000": {
+			"label": "Recipe App",
+			"onAutoForward": "openPreview"
+		}
+	},
+
+	"forwardPorts": [3000]
+}
