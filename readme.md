@@ -1,6 +1,6 @@
 # Recipe App
 
-This is a small, purposefully-imcomplete recipe app intended to be used in some Copilot workshops. 
+This is a small, purposefully-incomplete recipe app intended to be used in some Copilot workshops. 
 
 - Built with Node.js, Express, Handlebars, and Sqlite.
 - Scafholds a database with seed data on first launch.
