@@ -31,10 +31,6 @@ Visit `http://localhost:3000` to start managing your recipes.
 
 This project is licensed under the terms of the MIT open source license. Please refer to [MIT](https://github.com/github-samples/node-recipe-app/blob/main/LICENSE) for the full terms.
 
-## Maintainers
-
-See maintainers in the [CODEOWNERS](https://github.com/github-samples/node-recipe-app/blob/main/.github/CODEOWNERS) file.
-
 ## Support & Contributions
 
-There is no support for this repositry. It will periodically be updated as the needs for workshops where it is used evolves. We do not currently accept contributions. 
+There is no support for this repository. It will periodically be updated as the needs for workshops where it is used evolves. We do not currently accept contributions. 
