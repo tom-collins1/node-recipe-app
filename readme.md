@@ -15,7 +15,11 @@ Some ideas of what to add:
 
 ## Requirements
 
-This project can be run in a GitHub Codespace or locally with the help of a Dev Container. If you want to run outside of these environments, set up should be the following commands in your terminal:
+**Right click the following Codespaces button to open your Codespace in a new tab:**
+
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=1026168589)
+
+You can also run locally with the help of Dev Containers. If you want to run outside of a container, set up should be the following commands in your terminal:
 
 ```bash
 npm install
